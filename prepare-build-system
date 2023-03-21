@@ -24,10 +24,12 @@ fi
 
 if [ "$SETUP_PACKAGES" == "1" ]
 then
+    DEBIAN_FRONTEND="noninteractive"
     # Setup Java 8
     apt-get update
     apt-get purge -y openjdk*
-    apt-get install -y openjdk-8-jdk
+    apt-get install -y tzdata openjdk-8-jdk
+    TZ Asia/Shanghai
 
     DEPS="unzip git curl bzip2 binutils make autoconf openssl \
           libssl-dev libopus0 libpcre3 libpcre3-dev build-essential nasm python" 
